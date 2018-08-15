@@ -1,4 +1,4 @@
-package org.sergei.jenkins.showcase.controller;
+package org.sergei.jenkins.showcase;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
