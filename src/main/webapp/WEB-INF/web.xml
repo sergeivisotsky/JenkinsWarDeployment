@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>jenkins-war-deployment</servlet-name>
-        <servlet-class>org.sergei.jenkins.showcase.Welcome</servlet-class>
+        <servlet-class>org.sergei.jenkins.Welcome</servlet-class>
     </servlet>
 
     <servlet-mapping>
