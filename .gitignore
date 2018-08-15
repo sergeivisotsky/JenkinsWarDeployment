@@ -1,0 +1,27 @@
+*.class
+
+*.classpath
+*.project
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# idea project file
+.idea/*
+
+*.iml
+*.eml
+*.userlibraries
+*.log
+*.db-journal
+*.tmp
+*.zip
+*api-sergei.properties
+
+/SoapApi/*
+
+# Compilation binary file
+/out/*
+/target/*
