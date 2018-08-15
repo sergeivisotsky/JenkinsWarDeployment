@@ -24,4 +24,4 @@
 
 # Compilation binary file
 /out/*
-/target/*
+#/target/*
