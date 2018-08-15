@@ -20,8 +20,6 @@
 *.zip
 *api-sergei.properties
 
-/SoapApi/*
-
 # Compilation binary file
 /out/*
 #/target/*
