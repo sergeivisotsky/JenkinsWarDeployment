@@ -12,6 +12,6 @@ public class Welcome extends HttpServlet {
                          HttpServletResponse resp) throws IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        out.write("Welcome Jenkins!!!!");
+        out.write("Welcome Jenkins!");
     }
 }
