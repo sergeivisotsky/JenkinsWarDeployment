@@ -4,4 +4,14 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <display-name>Jenkins Showcase</display-name>
+
+    <servlet>
+        <servlet-name>Jenkins Showcase</servlet-name>
+        <servlet-class>org.sergei.jenkins.showcase.controller.Welcome</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Jenkins Showcase</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>
