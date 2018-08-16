@@ -11,11 +11,6 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-        /*stage('Install Stage') {
-            steps {
-                bat 'mvn clean install'
-            }
-        }
         stage('Compile Stage') {
             steps {
                 bat 'mvn clean compile'
@@ -32,6 +27,6 @@ pipeline {
             steps {
                 mat 'mvn deploy'
             }
-        }*/
+        }
     }
 }
