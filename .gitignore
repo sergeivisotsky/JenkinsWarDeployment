@@ -22,5 +22,5 @@
 
 # Compilation binary file
 /out/*
-*/target/*
+/target/*
 !target/JenkinsWarDeployment.war
