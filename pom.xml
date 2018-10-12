@@ -5,12 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.sergei</groupId>
-    <artifactId>jenkins-war-deployment</artifactId>
+    <artifactId>jenkins-showcase</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <build>
-        <finalName>jenkins-war-deployment</finalName>
-    </build>
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -19,4 +17,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <build>
+        <finalName>jenkins-showcase</finalName>
+    </build>
 </project>

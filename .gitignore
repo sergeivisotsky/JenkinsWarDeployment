@@ -23,4 +23,4 @@
 # Compilation binary file
 /out/*
 /target/*
-!target/jenkins-war-deployment.war
+!target/jenkins-showcase.war
