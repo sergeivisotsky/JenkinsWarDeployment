@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.sergei</groupId>
-    <artifactId>JenkinsWarDeployment</artifactId>
+    <artifactId>jenkins-war-deployment</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <build>
-        <finalName>JenkinsWarDeployment</finalName>
+        <finalName>jenkins-war-deployment</finalName>
     </build>
     <dependencies>
         <dependency>
