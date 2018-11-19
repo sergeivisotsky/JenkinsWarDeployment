@@ -6,9 +6,9 @@ pipeline {
     }
 
     stages {
-        stage('Package Stage') {
+        stage('Testing Stage') {
             steps {
-                bat 'mvn clean package'
+                bat 'mvn test'
             }
         }
         stage('Install Stage') {
@@ -21,16 +21,10 @@ pipeline {
                 bat 'mvn compile'
             }
         }
-        stage('Testing Stage') {
+        stage('Package Stage') {
             steps {
-                bat 'mvn test'
+                bat 'mvn clean package'
             }
         }
-
-        /*stage('Deployment Stage') {
-            steps {
-                mat 'mvn deploy'
-            }
-        }*/
     }
 }
