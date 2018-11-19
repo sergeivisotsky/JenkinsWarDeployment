@@ -11,22 +11,21 @@ pipeline {
                 bat 'mvn clean package'
             }
         }
-        /*stage('Install Stage') {
+        stage('Install Stage') {
             steps {
-                bat 'mvn clean install'
+                bat 'mvn install'
             }
         }
         stage('Compile Stage') {
             steps {
-                bat 'mvn clean compile'
+                bat 'mvn compile'
             }
         }
-
         stage('Testing Stage') {
             steps {
                 bat 'mvn test'
             }
-        }*/
+        }
 
         /*stage('Deployment Stage') {
             steps {
