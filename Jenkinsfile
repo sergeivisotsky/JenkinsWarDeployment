@@ -5,10 +5,12 @@ pipeline {
         maven 'maven_3_5_0'
     }
 
+    env.UNIX = isUnix()
+
     stages {
         stage('Testing Stage') {
             steps {
-                if(isUnix()) {
+                if(Boolean.valueOf(env.UNIX)) {
                     sh 'mvn test'
                 } else {
                     bat 'mvn test'
@@ -17,7 +19,7 @@ pipeline {
         }
         stage('Install Stage') {
             steps {
-                if(isUnix()) {
+                if(Boolean.valueOf(env.UNIX)) {
                     sh 'mvn install'
                 } else {
                     bat 'mvn install'
@@ -26,7 +28,7 @@ pipeline {
         }
         stage('Compile Stage') {
             steps {
-                if(isUnix()) {
+                if(Boolean.valueOf(env.UNIX)) {
                     sh 'mvn compile'
                 } else {
                     bat 'mvn compile'
@@ -35,7 +37,7 @@ pipeline {
         }
         stage('Package Stage') {
             steps {
-                if(isUnix()) {
+                if(Boolean.valueOf(env.UNIX)) {
                     sh 'mvn clean package'
                 } else {
                     bat 'mvn clean package'
