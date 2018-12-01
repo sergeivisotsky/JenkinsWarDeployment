@@ -8,22 +8,38 @@ pipeline {
     stages {
         stage('Testing Stage') {
             steps {
-                sh 'mvn test'
+                if(Boolean.valueOf(env.UNIX)) {
+                    sh 'mvn test'
+                } else {
+                    bat 'mvn test'
+                }
             }
         }
         stage('Install Stage') {
             steps {
-                sh 'mvn install'
+                if(Boolean.valueOf(env.UNIX)) {
+                    sh 'mvn install'
+                } else {
+                    bat 'mvn install'
+                }
             }
         }
         stage('Compile Stage') {
             steps {
-                sh 'mvn compile'
+                if(Boolean.valueOf(env.UNIX)) {
+                    sh 'mvn compile'
+                } else {
+                    bat 'mvn compile'
+                }
             }
         }
         stage('Package Stage') {
             steps {
-                sh 'mvn clean package'
+                if(Boolean.valueOf(env.UNIX)) {
+                    sh 'mvn clean package'
+                } else {
+                    bat 'mvn clean package'
+                }
             }
         }
     }
