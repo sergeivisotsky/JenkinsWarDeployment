@@ -1,2 +1,2 @@
 # jenkins-showcase
-Project for .war file deployment via Jenkins on Tomcat
+Jenkins and Git compatibility testing project
