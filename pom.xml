@@ -17,7 +17,5 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>jenkins-showcase</finalName>
-    </build>
+
 </project>
