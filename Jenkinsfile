@@ -45,7 +45,7 @@ pipeline {
             }
 
             steps {
-                container('maven') {
+                maven('maven') {
                     sh "mvn versions:set -DnewVersion=$PREVIEW_VERSION"
                     sh "mvn install"
                     sh 'export VERSION=$PREVIEW_VERSION'
