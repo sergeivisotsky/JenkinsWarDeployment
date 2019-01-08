@@ -37,8 +37,6 @@ pipeline {
                 sh 'mvn sonar:sonar'
             }
         }
-    }
-    stages {
         stage('CI Build and push snapshot') {
             environment {
                 PREVIEW_VERSION = "0.0.0-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
