@@ -69,17 +69,13 @@ pipeline {
                 sh "git commit -m \"Release `cat VERSION`\" --allow-empty"
                 sh "git tag -fa v\$(cat VERSION) -m \"Release version \$(cat VERSION)\""
                 sh "git push origin v\$(cat VERSION)"
+                sh 'mvn clean deploy -DskipTests'
+                sh 'export VERSION=`cat VERSION`'
+                sh "git config --global credential.helper store"
+                sh "jx step git credentials"
+                sh "updatebot push-version --kind maven org.activiti:activiti-core-dependencies \$(cat VERSION) --merge false"
+                sh "updatebot update --merge false"
             }
-            sh 'mvn clean deploy -DskipTests'
-
-            sh 'export VERSION=`cat VERSION`'
-
-            sh "git config --global credential.helper store"
-
-            sh "jx step git credentials"
-            sh "updatebot push-version --kind maven org.activiti:activiti-core-dependencies \$(cat VERSION) --merge false"
-            sh "updatebot update --merge false"
-
         }
     }
 }
