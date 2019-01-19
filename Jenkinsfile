@@ -6,7 +6,14 @@ pipeline {
     }
 
     stages {
-
+        stage('Code inspection & quality gate') {
+            steps {
+                withSonarQubeEnv('sergei-sonar') {
+                    echo '-=- run code inspection & check quality gate -=-'
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
         stage('Compilation') {
             steps {
                 echo '-=- compiling project -=-'
@@ -31,12 +38,12 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-        stage('Code inspection & quality gate') {
+        /*stage('Code inspection & quality gate') {
             steps {
                 echo '-=- run code inspection & check quality gate -=-'
                 sh 'mvn sonar:sonar'
             }
-        }
+        }*/
         stage('CI Build and push snapshot') {
             environment {
                 PREVIEW_VERSION = "0.0.0-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
