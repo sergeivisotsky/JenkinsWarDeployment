@@ -40,5 +40,11 @@ pipeline {
                 }
             }
         }
+        stage('Configuring docker-compose') {
+            steps {
+                echo '-=- Configuring docker-compose.yml -=-'
+                sh 'docker-compose config'
+            }
+        }
     }
 }

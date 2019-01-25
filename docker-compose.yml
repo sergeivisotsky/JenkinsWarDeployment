@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  config-service:
+    container_name: jenkins-showcase
+    build:
+      context: jenkins-showcase
+      dockerfile: Dockerfile
+    image: jenkins-showcase:latest
+    expose:
+      - 1998
+    networks:
+      - spring-cloud-network
+    volumes:
+      - jenkins-showcase-jenkins:/var/lib/jenkins-showcase
+    logging:
+      driver: json-file
+    command: mvn clean package spring-boot:repackage
+networks:
+  spring-boot-network:
+    driver: bridge
+volumes:
+  jenkins-showcase-jenkins:
+    external: true
