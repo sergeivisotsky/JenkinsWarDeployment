@@ -6,16 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Code inspection & quality gate') {
-            steps {
-                withSonarQubeEnv('sergei-sonar') {
-                    echo '-=- run code inspection & check quality gate -=-'
-                    sh 'mvn sonar:sonar ' +
-                            '-Dsonar.host.url=http://79.135.149.36:9000 ' +
-                            '-Dsonar.login=b18abeedf7353813275264a410d0acbc771219cd'
-                }
-            }
-        }
         stage('Compilation') {
             steps {
                 echo '-=- compiling project -=-'
@@ -40,50 +30,14 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-        /*stage('Code inspection & quality gate') {
+        stage('Code inspection & quality gate') {
             steps {
-                echo '-=- run code inspection & check quality gate -=-'
-                sh 'mvn sonar:sonar'
-            }
-        }*/
-        stage('CI Build and push snapshot') {
-            environment {
-                PREVIEW_VERSION = "0.0.0-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
-                PREVIEW_NAMESPACE = "$APP_NAME-$BRANCH_NAME".toLowerCase()
-                HELM_RELEASE = "$PREVIEW_NAMESPACE".toLowerCase()
-            }
-
-            steps {
-                sh "mvn versions:set -DnewVersion=$PREVIEW_VERSION"
-                sh "mvn install"
-                sh 'export VERSION=$PREVIEW_VERSION'
-            }
-        }
-        stage('Build Release') {
-            when {
-                branch 'master'
-            }
-            steps {
-                // ensure we're not on a detached head
-                sh "git checkout develop"
-                sh "git config --global credential.helper store"
-
-                sh "jx step git credentials"
-                // so we can retrieve the version in later steps
-                sh "echo \$(jx-release-version) > VERSION"
-                sh "mvn versions:set -DnewVersion=\$(cat VERSION)"
-                sh 'mvn clean verify'
-
-                sh "git add --all"
-                sh "git commit -m \"Release `cat VERSION`\" --allow-empty"
-                sh "git tag -fa v\$(cat VERSION) -m \"Release version \$(cat VERSION)\""
-                sh "git push origin v\$(cat VERSION)"
-                sh 'mvn clean deploy -DskipTests'
-                sh 'export VERSION=`cat VERSION`'
-                sh "git config --global credential.helper store"
-                sh "jx step git credentials"
-                sh "updatebot push-version --kind maven org.activiti:activiti-core-dependencies \$(cat VERSION) --merge false"
-                sh "updatebot update --merge false"
+                withSonarQubeEnv('sergei-sonar') {
+                    echo '-=- run code inspection & check quality gate -=-'
+                    sh 'mvn sonar:sonar ' +
+                            '-Dsonar.host.url=http://79.135.149.36:9000 ' +
+                            '-Dsonar.login=b18abeedf7353813275264a410d0acbc771219cd'
+                }
             }
         }
     }

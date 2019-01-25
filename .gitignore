@@ -1,26 +1,25 @@
-*.class
+/target/
+!.mvn/wrapper/maven-wrapper.jar
 
-*.classpath
-*.project
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# Package Files #
-*.jar
-#*.war
-*.ear
-
-# idea project file
-.idea/*
-
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
-*.eml
-*.userlibraries
-*.log
-*.db-journal
-*.tmp
-*.zip
-*api-sergei.properties
+*.ipr
 
-# Compilation binary file
-/out/*
-/target/*
-!target/jenkins-showcase.war
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
