@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.sergei</groupId>
-	<artifactId>jenkins</artifactId>
+	<artifactId>jenkins-showcase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jenkins</name>
+	<name>jenkins-showcase</name>
 	<description>Jenkins and Git compatibility testing project</description>
 
 	<properties>
